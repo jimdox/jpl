@@ -13,7 +13,6 @@ float getX(){ return this->x; }
 float getY(){ return this->y; } 
 float getZ(){ return this->z; }
 
-
 inline void operator+(vec3f* vector)
 { 
     this->x += vector->getX(); 
@@ -46,6 +45,15 @@ void cross(vec3f* vector)
     y = j;
     z = k;
 }
+
+void cross(vec2f* vector)
+{
+    vec3f vb(vector->getX(), vector->getY(), 0.0f);
+    cross(&vb);
+
+}
+
+
 private:
 
 float x;
