@@ -53,9 +53,15 @@ void cross(vec2f* vector)
 {
     vec3f vb(vector->getX(), vector->getY(), 0.0f);
     cross(&vb);
-
 }
 
+void mix(vec3f* vector)
+{
+    x = (x+vector->getX())/2;
+    y = (y+vector->getY())/2;
+    z = (z+vector->getZ())/2;
+
+}
 
 private:
 
