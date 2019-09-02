@@ -30,6 +30,9 @@ inline vec3f operator-(vec3f& vector)
     return vec3f(x, y, z);
 }
 
+inline vec3f operator*(float scale){ return vec3f(scale * x, scale * y, scale * z); }
+
+
 void dot(vec3f* vector)
 {
     x *= vector->getX();

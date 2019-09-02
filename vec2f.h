@@ -15,6 +15,7 @@ inline float getY() { return this->y; }
 inline vec2f operator+(vec2f* vector){ x += vector->getX(); y += vector->getY(); return vec2f(x,y); }
 inline vec2f operator-(vec2f* vector){ x -= vector->getX(); y -= vector->getY(); return vec2f(x,y); }
 
+inline vec2f operator*(float scale){ return vec2f(scale * x, scale * y); }
 
 
 void dot(vec2f* vector)
