@@ -1,33 +1,33 @@
-#include "jpkVector.h"
+#include "jpk_vector.h"
 
 
 namespace jpk {
-class Vec3f : public Vector
+class vec3f : public jpk_vector
 {
 public:
-Vec3f(float x, float y, float z){ this->x = x; this->y = y; this->z = z; }
-~Vec3f(){ }
+vec3f(float x, float y, float z){ this->x = x; this->y = y; this->z = z; }
+~vec3f(){ }
 
 float getX(){ return this->x; }
 float getY(){ return this->y; } 
 float getZ(){ return this->z; }
 
 
-inline void operator+(Vec3f* vector)
+inline void operator+(vec3f* vector)
 { 
     this->x += vector->getX(); 
     this->y += vector->getY();
     this->z += vector->getZ();
 }
 
-inline void operator-(Vec3f* vector)
+inline void operator-(vec3f* vector)
 {
     this->x -= vector->getX();
     this->y -= vector->getY();
     this->z -= vector->getZ();
 }
 
-void dot(Vec3f* vector)
+void dot(vec3f* vector)
 {
     x *= vector->getX();
     y *= vector->getY();
