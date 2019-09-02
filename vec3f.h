@@ -1,5 +1,5 @@
 #include "jpk_vector.h"
-
+#include "vec2f.h"
 
 namespace jpk {
 class vec3f : public jpk_vector
@@ -13,18 +13,21 @@ float getX(){ return this->x; }
 float getY(){ return this->y; } 
 float getZ(){ return this->z; }
 
-inline void operator+(vec3f* vector)
+
+inline vec3f operator+(vec3f& vector)
 { 
-    this->x += vector->getX(); 
-    this->y += vector->getY();
-    this->z += vector->getZ();
+    this->x += vector.getX(); 
+    this->y += vector.getY();
+    this->z += vector.getZ();
+    return vec3f(x, y, z);
 }
 
-inline void operator-(vec3f* vector)
+inline vec3f operator-(vec3f& vector)
 {
-    this->x -= vector->getX();
-    this->y -= vector->getY();
-    this->z -= vector->getZ();
+    this->x -= vector.getX();
+    this->y -= vector.getY();
+    this->z -= vector.getZ();
+    return vec3f(x, y, z);
 }
 
 void dot(vec3f* vector)
@@ -50,6 +53,7 @@ void cross(vec2f* vector)
 {
     vec3f vb(vector->getX(), vector->getY(), 0.0f);
     cross(&vb);
+
 }
 
 

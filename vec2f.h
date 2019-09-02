@@ -12,8 +12,8 @@ vec2f(float x, float y){ this->x = x; this->y = y; }
 inline float getX() { return this->x; }
 inline float getY() { return this->y; }
 
-inline void operator+(vec2f* vector){ x += vector->getX(); y += vector->getY(); }
-inline void operator-(vec2f* vector){ x -= vector->getX(); y -= vector->getY(); }
+inline vec2f operator+(vec2f* vector){ x += vector->getX(); y += vector->getY(); return vec2f(x,y); }
+inline vec2f operator-(vec2f* vector){ x -= vector->getX(); y -= vector->getY(); return vec2f(x,y); }
 
 
 
