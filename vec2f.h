@@ -2,7 +2,8 @@
 
 
 namespace jpk {
-class vec2f : public jpk_vector {
+class vec2f : public jpk_vector 
+{
 
 public:
 vec2f(float x, float y){ this->x = x; this->y = y; }
