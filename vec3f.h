@@ -16,18 +16,18 @@ float getZ(){ return this->z; }
 
 inline vec3f operator+(vec3f& vector)
 { 
-    x += vector.getX(); 
-    y += vector.getY();
-    z += vector.getZ();
-    return vec3f(x, y, z);
+    float i = x + vector.getX(); 
+    float j = y + vector.getY();
+    float k = z + vector.getZ();
+    return vec3f(i, j, k);
 }
 
 inline vec3f operator-(vec3f& vector)
 {
-    x -= vector.getX();
-    y -= vector.getY();
-    z -= vector.getZ();
-    return vec3f(x, y, z);
+    float i = x - vector.getX();
+    float j = y - vector.getY();
+    float k = z - vector.getZ();
+    return vec3f(i, j, k);
 }
 
 inline vec3f operator*(float scale){ return vec3f(scale * x, scale * y, scale * z); }
@@ -64,6 +64,16 @@ void mix(vec3f* vector)
     y = (y+vector->getY())/2;
     z = (z+vector->getZ())/2;
 
+} 
+
+float mag()
+{
+    return sqrt( (x*x) + (y*y));
+}
+
+void print()
+{
+    printf("%f %f, %f\n", x, y, z);
 }
 
 private:
