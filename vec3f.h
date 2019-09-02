@@ -16,17 +16,17 @@ float getZ(){ return this->z; }
 
 inline vec3f operator+(vec3f& vector)
 { 
-    this->x += vector.getX(); 
-    this->y += vector.getY();
-    this->z += vector.getZ();
+    x += vector.getX(); 
+    y += vector.getY();
+    z += vector.getZ();
     return vec3f(x, y, z);
 }
 
 inline vec3f operator-(vec3f& vector)
 {
-    this->x -= vector.getX();
-    this->y -= vector.getY();
-    this->z -= vector.getZ();
+    x -= vector.getX();
+    y -= vector.getY();
+    z -= vector.getZ();
     return vec3f(x, y, z);
 }
 
@@ -68,9 +68,7 @@ void mix(vec3f* vector)
 
 private:
 
-float x;
-float y;
-float z;
+float x,y,z;
 
 };
 };

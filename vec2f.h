@@ -32,9 +32,7 @@ void mix(vec2f* vector)
 
 private: 
 
-float x; 
-float y;
-
+float x,y; 
 
 };
 };
