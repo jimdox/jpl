@@ -50,7 +50,6 @@ void cross(vec2f* vector)
 {
     vec3f vb(vector->getX(), vector->getY(), 0.0f);
     cross(&vb);
-
 }
 
 
