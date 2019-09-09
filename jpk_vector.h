@@ -9,19 +9,17 @@ namespace jpk
 class jpk_vector {
 
 public:
-jpk_vector(){};
-virtual ~jpk_vector(){};
+    jpk_vector(){};
+    virtual ~jpk_vector(){};
 
-virtual float getX(){};
-virtual float getY(){};
-virtual void print(){};
-virtual float dir(){};  // direction of vector 
-virtual float mag(){};  // magnitude of vector
+    virtual float getX(){ return x;};
+    virtual float getY(){ return y;};
+    virtual void print(){};
 
 
 private:
-
-
+    float x; 
+    float y;
 
 };
 };
