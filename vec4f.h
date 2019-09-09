@@ -18,7 +18,7 @@ public:
         y = vector->getY();
         z = vector->getZ();
         this->a = a;
-    }
+    }   
     ~vec4f(){ }
 
     float getX(){ return x; }
@@ -31,11 +31,11 @@ public:
         float i = x + vector.getX(); 
         float j = y + vector.getY();
         float k = z + vector.getZ();
-        float m = a + vector->getA();
-        return vec3f(i, j, k, m);
+        float m = a + vector.getA();
+        return vec4f(i, j, k, m);
     }
 
-    inline vec3f operator-(vec4f& vector)
+    inline vec4f operator-(vec4f& vector)
     {
         float i = x - vector.getX();
         float j = y - vector.getY();
@@ -44,7 +44,7 @@ public:
         return vec4f(i, j, k, m);
     }
 
-    inline vec4f operator*(float scale){ return vec3f(scale * x, scale * y, scale * z, scale * a); }
+    inline vec4f operator*(float scale){ return vec4f(scale * x, scale * y, scale * z, scale * a); }
 
 
     void dot(vec4f* vector)
@@ -78,5 +78,5 @@ public:
 private:
     float x,y,z,a;
 
-}
+};
 };
