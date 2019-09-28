@@ -45,7 +45,7 @@ public:
     }
 
     inline vec4f operator*(float scale){ return vec4f(scale * x, scale * y, scale * z, scale * a); }
-
+    inline vec4f operator*(vec4f& vector){ return dot(vector);
 
     void dot(vec4f* vector)
     {
