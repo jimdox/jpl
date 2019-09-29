@@ -45,7 +45,8 @@ public:
     }
 
     inline vec4f operator*(float scale){ return vec4f(scale * x, scale * y, scale * z, scale * a); }
-    inline vec4f operator*(vec4f& vector){ return dot(vector);
+   	
+	inline vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.getX()*x, vec_b.getY()*y, vec_b.getZ()*z, vec_b.getA()*a); } 
 
     void dot(vec4f* vector)
     {

@@ -28,12 +28,13 @@ public:
     }
 
     inline vec2f operator*(float scale){ return vec2f(scale * x, scale * y); }
-
-
-    void dot(vec2f* vector)
+    
+    inline vec2f operator*(vec2f& vec_b){ return vec2f( vec_b.getX()*x, vec_b.getY()*y); }
+    
+    void dot(vec2f& vector)
     {
-        x *= vector->getX();
-        y *= vector->getY();
+        x *= vector.getX();
+        y *= vector.getY();
     }
 
     void mix(vec2f* vector)

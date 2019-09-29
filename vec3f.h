@@ -34,13 +34,9 @@ public:
 
     inline vec3f operator*(float scale){ return vec3f(scale * x, scale * y, scale * z); }
     
-    inline vec3f operator*(vec3f& vector)
-    {
-        float i = x * vector.getX();
-        float j = y * vector.getY();
-        float k = z * vector.getZ();
-        return vec3f(i,j,k);
-    }
+	inline vec3f operator*(vec3f& vec_b){ return vec3f(vec_b.getX()*x, vec_b.getY()*y, vec_b.getZ()*z); } 
+	
+
     void dot(vec3f* vector)
     {
         x *= vector->getX();
