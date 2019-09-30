@@ -14,53 +14,53 @@ public:
     }
     vec4f(vec3f* vector, float a)
     {
-        x = vector->getX();
-        y = vector->getY();
-        z = vector->getZ();
+        x = vector->get_x();
+        y = vector->get_y();
+        z = vector->get_z();
         this->a = a;
     }   
     ~vec4f(){ }
 
-    float getX(){ return x; }
-    float getY(){ return y; } 
-    float getZ(){ return z; }
-    float getA(){ return a; }
+    float get_x(){ return x; }
+    float get_y(){ return y; } 
+    float get_z(){ return z; }
+    float get_a(){ return a; }
 
     inline vec4f operator+(vec4f& vector)
     { 
-        float i = x + vector.getX(); 
-        float j = y + vector.getY();
-        float k = z + vector.getZ();
-        float m = a + vector.getA();
+        float i = x + vector.get_x(); 
+        float j = y + vector.get_y();
+        float k = z + vector.get_z();
+        float m = a + vector.get_a();
         return vec4f(i, j, k, m);
     }
 
     inline vec4f operator-(vec4f& vector)
     {
-        float i = x - vector.getX();
-        float j = y - vector.getY();
-        float k = z - vector.getZ();
-        float m = a - vector.getA();
+        float i = x - vector.get_x();
+        float j = y - vector.get_y();
+        float k = z - vector.get_z();
+        float m = a - vector.get_a();
         return vec4f(i, j, k, m);
     }
 
     inline vec4f operator*(float scale){ return vec4f(scale * x, scale * y, scale * z, scale * a); }
    	
-	inline vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.getX()*x, vec_b.getY()*y, vec_b.getZ()*z, vec_b.getA()*a); } 
+	inline vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.get_x()*x, vec_b.get_y()*y, vec_b.get_z()*z, vec_b.get_a()*a); } 
 
     void dot(vec4f* vector)
     {
-        x *= vector->getX();
-        y *= vector->getY();
-        z *= vector->getZ();
+        x *= vector->get_x();
+        y *= vector->get_y();
+        z *= vector->get_z();
     }
 
     void mix(vec4f* vector)
     {
-        x = (x+vector->getX())/2;
-        y = (y+vector->getY())/2;
-        z = (z+vector->getZ())/2;
-        a = (a+vector->getA())/2;
+        x = (x+vector->get_x())/2;
+        y = (y+vector->get_y())/2;
+        z = (z+vector->get_z())/2;
+        a = (a+vector->get_a())/2;
     } 
 
     float mag()

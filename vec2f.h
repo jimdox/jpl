@@ -1,4 +1,4 @@
-#pragma once
+    #pragma once
 #include "jpk_vector.h"
 
 
@@ -10,37 +10,37 @@ public:
     vec2f(float x, float y){ this->x = x; this->y = y; }
     ~vec2f(){ };
 
-    inline float getX() { return x; }
-    inline float getY() { return y; }
+    inline float get_x() { return x; }
+    inline float get_y() { return y; }
 
     inline vec2f operator+(vec2f* vector)
     { 
-        float i = x + vector->getX();
-        float j = y + vector->getY();
+        float i = x + vector->get_x();
+        float j = y + vector->get_y();
         return vec2f(i,j);
     }
 
     inline vec2f operator-(vec2f* vector)
     {
-        float i = x - vector->getX();
-        float j = y - vector->getY();
+        float i = x - vector->get_x();
+        float j = y - vector->get_y();
         return vec2f(i,j);
     }
 
     inline vec2f operator*(float scale){ return vec2f(scale * x, scale * y); }
     
-    inline vec2f operator*(vec2f& vec_b){ return vec2f( vec_b.getX()*x, vec_b.getY()*y); }
+    inline vec2f operator*(vec2f& vec_b){ return vec2f( vec_b.get_x()*x, vec_b.get_y()*y); }
     
     void dot(vec2f& vector)
     {
-        x *= vector.getX();
-        y *= vector.getY();
+        x *= vector.get_x();
+        y *= vector.get_y();
     }
 
     void mix(vec2f* vector)
     {
-        x = (x + vector->getX())/2;
-        y = (y + vector->getY())/2;
+        x = (x + vector->get_x())/2;
+        y = (y + vector->get_y())/2;
     }
 
     float dir()
