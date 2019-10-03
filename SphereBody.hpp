@@ -1,5 +1,6 @@
 #pragma once
 #include "vec3f.hpp"
+#include <math.h>
 #include <stdio.h>
 namespace jpk {
 class SphereBody 
@@ -23,7 +24,13 @@ public:
 
     }
 
-    ~SphereBody(){ };
+    ~SphereBody()
+    {
+        /* explicitly call destructors */
+        position.~vec3f();
+        velocity.~vec3f();
+        accleration.~vec3f();
+    }
 
     float get_radius()
     {
@@ -69,7 +76,7 @@ public:
 
         if(isCollisionBody)
         {
-            check_bounds();
+
         }
     }
     
@@ -77,8 +84,34 @@ public:
     {
         printf("c3 %e %e %e %e\n", position.get_x(), position.get_y(), position.get_z(), radius);
     }
+    /* bounding sphere collision detection */
+    bool check_collision(SphereBody* sphere_b)
+    {
+        float total_radius = this->radius + sphere_b->get_radius();
 
-    void check_bounds() { }
+        float d_x = sphere_b->get_position().get_x() - position.get_x();
+        float d_y = sphere_b->get_position().get_y() - position.get_y();
+        float d_z = sphere_b->get_position().get_z() - position.get_z();
+
+        float com_distance = (float)sqrt((d_x*d_x) + (d_y*d_y) + (d_z*d_z));
+
+        float pos_diff = com_distance - total_radius;
+        if(com_distance < total_radius)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    static void collision_handler(SphereBody* a, SphereBody* b)
+    {
+        if(a->check_collision(b))
+        {
+            
+        }
+    }
+
+
 private:
     vec3f position;
     vec3f velocity;
