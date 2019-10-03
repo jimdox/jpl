@@ -4,9 +4,15 @@
 
 int main(void)
 {
-    float x,y,z = 0.0f;
-    float c = 0.0f; 
-    while(1)
+    jpk::vec3f pos(0.0f, 0.0f, 0.0f);
+    jpk::SphereBody sp(pos, 1.0f);
+    
+    sp.
+    
+    
+    
+    
+    /*while(1)
     {
         x = cosf(c);
         z = sinf(c);
@@ -14,6 +20,6 @@ int main(void)
         printf("ct3 %e %e %e 1\n", x,y,z);
         printf("F\n");
     }
-
+    */
     return 0;
 }

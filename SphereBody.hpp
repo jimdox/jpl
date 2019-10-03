@@ -63,8 +63,8 @@ public:
 
     void update(float dt)
     {
-        velocity += accleration * dt;
-        position += velocity * dt;
+        velocity += (accleration * dt);
+        position += (velocity*dt);
 
         if(isCollisionBody)
         {
@@ -72,7 +72,7 @@ public:
         }
     }
     
-    void checkBounds() { }
+    void check_bounds() { }
 private:
     vec3f position;
     vec3f velocity;
