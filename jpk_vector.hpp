@@ -12,8 +12,8 @@ public:
     jpk_vector(){};
     virtual ~jpk_vector(){};
 
-    virtual float getX(){ return x;};
-    virtual float getY(){ return y;};
+    virtual float getX(){ return x; };
+    virtual float getY(){ return y; };
     virtual void print(){};
 
 

@@ -1,20 +1,20 @@
 #pragma once
-#include "vec3f.h"
+#include "vec3f.hpp"
 #include <stdio.h>
 namespace jpk {
 class SphereBody 
 {
 public:
-    SphereBody(vec3f& pos, float rad) : position(pos)
+    SphereBody(vec3f& pos, float rad, float m) : position(pos)
     {
         radius = rad;
-        mass = 0.0f;
+        mass = m;
     }
     SphereBody(vec3f& pos, vec3f& vel, float rad) : position(pos), velocity(vel)
     {
         radius = rad;
         mass = 0.0f;
-    }
+    }               
 
     SphereBody(vec3f& pos, vec3f& vel, float r, float m) : position(pos), velocity(vel)
     {
@@ -55,10 +55,11 @@ public:
     }
 
 
-    void apply_force(vec3f& force)
+    void apply_force(vec3f& force, float dt)
     {
         vec3f d_a = force * (1.0f/mass);
         accleration += d_a;
+        update(dt);
     }
 
     void update(float dt)
@@ -72,6 +73,11 @@ public:
         }
     }
     
+    void print()
+    {
+        printf("c3 %e %e %e %e\n", position.get_x(), position.get_y(), position.get_z(), radius);
+    }
+
     void check_bounds() { }
 private:
     vec3f position;

@@ -5,10 +5,12 @@
 int main(void)
 {
     jpk::vec3f pos(0.0f, 0.0f, 0.0f);
-    jpk::SphereBody sp(pos, 1.0f);
+    jpk::SphereBody sp(pos, 1.0f, 0.3f);
     
-    sp.
-    
+    jpk::vec3f force1(1.0f, 0.0f, 0.0f);
+    sp.print();
+    sp.apply_force(force1, 0.1f);
+    sp.print();
     
     
     

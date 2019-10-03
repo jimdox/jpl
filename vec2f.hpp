@@ -1,5 +1,5 @@
 #pragma once
-#include "jpk_vector.h"
+#include "jpk_vector.hpp"
 
 
 namespace jpk {
