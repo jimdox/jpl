@@ -7,6 +7,7 @@ class vec3f : public jpk_vector
 {
 
 public:
+    vec3f(){ x,y,z = 0.0f; }
     vec3f(float x, float y, float z){ this->x = x; this->y = y; this->z = z; }
     vec3f(vec2f* vector, float z){ x = vector->get_x(); y = vector->get_y(); this->z = z; }
     ~vec3f(){ }
