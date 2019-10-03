@@ -8,10 +8,19 @@ public:
     SphereBody(vec3f& pos, float rad) : position(pos)
     {
         radius = rad;
-    };
+        mass = 0.0f;
+    }
     SphereBody(vec3f& pos, vec3f& vel, float rad) : position(pos), velocity(vel)
     {
         radius = rad;
+        mass = 0.0f;
+    }
+
+    SphereBody(vec3f& pos, vec3f& vel, float r, float m) : position(pos), velocity(vel)
+    {
+        radius = r;
+        mass = m;
+
     }
 
     ~SphereBody(){ };
@@ -40,12 +49,37 @@ public:
         velocity = vel;
     }
 
+    void offset_pos(vec3f d_pos)
+    {
+        position += d_pos;
+    }
 
+
+    void apply_force(vec3f& force)
+    {
+        vec3f d_a = force * (1.0f/mass);
+        accleration += d_a;
+    }
+
+    void update(float dt)
+    {
+        velocity += accleration * dt;
+        position += velocity * dt;
+
+        if(isCollisionBody)
+        {
+            check_bounds();
+        }
+    }
     
+    void checkBounds() { }
 private:
     vec3f position;
     vec3f velocity;
+    vec3f accleration;
+
     float radius;
+    float mass;
     bool isCollisionBody = false;
     
     

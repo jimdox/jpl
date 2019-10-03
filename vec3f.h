@@ -25,6 +25,13 @@ public:
         return vec3f(i, j, k);
     }
 
+    inline void operator+=(vec3f& vector)
+    {
+        x += vector.get_x();
+        y += vector.get_y();
+        z += vector.get_z();
+    }
+
     inline vec3f operator-(vec3f& vector)
     {
         float i = x - vector.get_x();
