@@ -85,6 +85,7 @@ public:
 
     } 
 
+    /* return the length of the vector */
     float mag()
     {
         return sqrt( (x*x) + (y*y) + (z*z));

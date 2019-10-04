@@ -37,19 +37,36 @@ public:
         return radius;
     }
 
+    void set_radius(float r)
+    {
+        radius = r;
+    }
+
+    float get_mass()
+    {
+        return mass;
+    }
+
+    void set_mass(float m)
+    {
+        mass = m;
+    }
+
     vec3f& get_position()
     {
         return position;
     }
+
+    void set_position(vec3f& pos)
+    {
+        position = pos;
+    }
+
     vec3f& get_velocity()
     {
         return velocity;
     }
     
-    void set_position(vec3f& pos)
-    {
-        position = pos;
-    }
 
     void set_velocity(vec3f& vel)
     {
@@ -62,11 +79,18 @@ public:
     }
 
 
-    void apply_force(vec3f& force, float dt)
+    void apply_force(vec3f& force, float duration, unsigned int num_steps)
     {
         vec3f d_a = force * (1.0f/mass);
+        float dt = duration/num_steps;                          /* interval to update object */
+
+        for(int i = 0; i < num_steps; i++)
+        {
         accleration += d_a;
         update(dt);
+        }
+
+        accleration += (d_a*(-1));                             /* setting it to 0 would cancel net force */
     }
 
     void update(float dt)
@@ -89,13 +113,13 @@ public:
     {
         float total_radius = this->radius + sphere_b->get_radius();
 
+        /* components of relative distance */
         float d_x = sphere_b->get_position().get_x() - position.get_x();
         float d_y = sphere_b->get_position().get_y() - position.get_y();
         float d_z = sphere_b->get_position().get_z() - position.get_z();
 
         float com_distance = (float)sqrt((d_x*d_x) + (d_y*d_y) + (d_z*d_z));
 
-        float pos_diff = com_distance - total_radius;
         if(com_distance < total_radius)
         {
             return true;
@@ -107,7 +131,7 @@ public:
     {
         if(a->check_collision(b))
         {
-            
+            float d_momentum = a->get_position().get_x();
         }
     }
 

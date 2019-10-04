@@ -1,5 +1,5 @@
 #pragma once
-#include "vec3f.h"
+#include "vec3f.hpp"
 
 namespace jpk {
 class vec4f : public jpk_vector
