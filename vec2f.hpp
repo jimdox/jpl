@@ -37,10 +37,9 @@ public:
     
     inline vec2f operator*(vec2f& vec_b){ return vec2f( vec_b.get_x()*x, vec_b.get_y()*y); }
     
-    void dot(vec2f* vector)
+    float dot(vec2f* vector)
     {
-        x *= vector->get_x();
-        y *= vector->get_y();
+        return  x * vector->get_x() + y * vector->get_y();
     }
 
     void mix(vec2f* vector)
@@ -67,6 +66,7 @@ public:
 private: 
 
     float x,y; 
+
 
 };
 };

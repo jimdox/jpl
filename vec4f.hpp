@@ -50,9 +50,7 @@ public:
 
     void dot(vec4f* vector)
     {
-        x *= vector->get_x();
-        y *= vector->get_y();
-        z *= vector->get_z();
+        return x * vector->get_x() + y * vector->get_y() + z * vector->get_z() + a * vector->get_a();
     }
 
     void mix(vec4f* vector)
