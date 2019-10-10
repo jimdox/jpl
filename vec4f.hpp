@@ -1,6 +1,10 @@
 #pragma once
 #include "vec3f.hpp"
 
+/* @author: James Doxtader
+            github.com/jimdox/jpk
+*/
+
 namespace jpk {
 class vec4f : public jpk_vector
 {
@@ -46,7 +50,7 @@ public:
 
     inline vec4f operator*(float scale){ return vec4f(scale * x, scale * y, scale * z, scale * a); }
    	
-	inline vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.get_x()*x, vec_b.get_y()*y, vec_b.get_z()*z, vec_b.get_a()*a); } 
+    inline vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.get_x()*x, vec_b.get_y()*y, vec_b.get_z()*z, vec_b.get_a()*a); } 
 
     void dot(vec4f* vector)
     {

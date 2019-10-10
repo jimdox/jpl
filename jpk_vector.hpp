@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* @author: James Doxtader
+            github.com/jimdox/jpk
+*/
 
 namespace jpk 
 {

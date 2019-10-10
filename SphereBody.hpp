@@ -2,6 +2,11 @@
 #include "vec3f.hpp"
 #include <math.h>
 #include <stdio.h>
+
+/* @author: James Doxtader
+            github.com/jimdox/jpk
+*/
+
 namespace jpk {
 class SphereBody 
 {

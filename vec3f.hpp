@@ -1,6 +1,10 @@
 #pragma once
 #include "vec2f.hpp"
 
+/* @author: James Doxtader
+            github.com/jimdox/jpk
+*/
+
 namespace jpk {
 class vec3f : public jpk_vector
 {
