@@ -1,1 +1,1 @@
-# Jim's Physics Toolkit
+# Jim's Physics ToolKit
