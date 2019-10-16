@@ -4,10 +4,10 @@
 #include <stdio.h>
 
 /* @author: James Doxtader
-            github.com/jimdox/jpk
+            github.com/jimdox/jpl
 */
 
-namespace jpk {
+namespace jpl {
 class SphereBody 
 {
 public:

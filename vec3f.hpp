@@ -2,11 +2,11 @@
 #include "vec2f.hpp"
 
 /* @author: James Doxtader
-            github.com/jimdox/jpk
+            github.com/jimdox/jpl
 */
 
-namespace jpk {
-class vec3f : public jpk_vector
+namespace jpl {
+class vec3f : public jpl_vector
 {
 
 public:

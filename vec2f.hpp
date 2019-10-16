@@ -1,12 +1,12 @@
 #pragma once
-#include "jpk_vector.hpp"
+#include "jpl_vector.hpp"
 
 /* @author: James Doxtader
-            github.com/jimdox/jpk
+            github.com/jimdox/jpl
 */
 
-namespace jpk {
-class vec2f : public jpk_vector 
+namespace jpl {
+class vec2f : public jpl_vector 
 {
 
 public:
