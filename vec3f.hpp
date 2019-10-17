@@ -48,6 +48,13 @@ public:
     { 
         return vec3f(scale * x, scale * y, scale * z);
     }
+
+    void operator*=(float scale)
+    {
+        x * scale;
+        y * scale;
+        z * scale;
+    }
     
 	vec3f operator*(const vec3f& vec_b)
     { 
@@ -57,11 +64,6 @@ public:
     float dot(vec3f* vector)
     {
         return x * vector->get_x() + y * vector->get_y() + z * vector->get_z();
-    }
-
-    vec3f scale(float s)
-    {
-        return vec3f(x * s, y * s, z * s);
     }
 
     void cross(const vec3f* vector)

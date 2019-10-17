@@ -37,6 +37,8 @@ public:
     
 
     vec2f operator*(float scale){ return vec2f(scale * x, scale * y); }
+
+    void operator*=(float scale){ x * scale; y * scale; }
     
     vec2f operator*(vec2f& vec_b){ return vec2f( vec_b.get_x()*x, vec_b.get_y()*y); }
     
@@ -73,3 +75,4 @@ private:
 
 };
 };
+
