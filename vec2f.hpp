@@ -16,19 +16,19 @@ public:
     inline float get_x()const { return x; }
     inline float get_y()const { return y; }
 
-    inline vec2f operator+(const vec2f& vector)
+    vec2f operator+(const vec2f& vector)
     { 
         float i = x + vector.get_x();
         float j = y + vector.get_y();
         return vec2f(i,j);
     }
-    inline void operator+=(const vec2f& vector)
+    void operator+=(const vec2f& vector)
     {
         x += vector.get_x();
         y += vector.get_y();
     }
 
-    inline vec2f operator-(const vec2f& vector)
+    vec2f operator-(const vec2f& vector)
     {
         float i = x - vector.get_x();
         float j = y - vector.get_y();
@@ -36,9 +36,9 @@ public:
     }
     
 
-    inline vec2f operator*(float scale){ return vec2f(scale * x, scale * y); }
+    vec2f operator*(float scale){ return vec2f(scale * x, scale * y); }
     
-    inline vec2f operator*(vec2f& vec_b){ return vec2f( vec_b.get_x()*x, vec_b.get_y()*y); }
+    vec2f operator*(vec2f& vec_b){ return vec2f( vec_b.get_x()*x, vec_b.get_y()*y); }
     
     float dot(vec2f* vector)
     {
@@ -51,12 +51,12 @@ public:
         y = (y + vector->get_y())/2;
     }
 
-    float dir()
+    inline float dir()
     {
         return atan(y/x);
     }
 
-    float mag()
+    inline float mag()
     {
         return sqrt( (x*x) + (y*y));
     }

@@ -15,8 +15,8 @@ public:
     jpl_vector(){};
     virtual ~jpl_vector(){};
 
-    virtual float getX(){ return x; };
-    virtual float getY(){ return y; };
+    virtual float get_x(){ return x; };
+    virtual float get_y(){ return y; };
     virtual void print(){};
 
 

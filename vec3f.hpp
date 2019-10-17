@@ -17,12 +17,11 @@ public:
 
     ~vec3f(){ }
 
-    float get_x()const { return x; }
-    float get_y()const { return y; } 
-    float get_z()const { return z; }
+    inline float get_x()const { return x; }
+    inline float get_y()const { return y; } 
+    inline float get_z()const { return z; }
 
-
-    inline vec3f operator+(const vec3f &vector)
+    vec3f operator+(const vec3f &vector)
     { 
         float i = x + vector.get_x(); 
         float j = y + vector.get_y();
@@ -30,14 +29,14 @@ public:
         return vec3f(i, j, k);
     }
 
-    inline void operator+=(const vec3f& vector)
+    void operator+=(const vec3f& vector)
     {
         x += vector.get_x();
         y += vector.get_y();
         z += vector.get_z();
     }
 
-    inline vec3f operator-(const vec3f& vector)
+    vec3f operator-(const vec3f& vector)
     {
         float i = x - vector.get_x();
         float j = y - vector.get_y();
@@ -45,12 +44,12 @@ public:
         return vec3f(i, j, k);
     }
 
-    inline vec3f operator*(float scale) const 
+    vec3f operator*(float scale) const 
     { 
         return vec3f(scale * x, scale * y, scale * z);
     }
     
-	inline vec3f operator*(const vec3f& vec_b)
+	vec3f operator*(const vec3f& vec_b)
     { 
         return vec3f(vec_b.get_x() * x, vec_b.get_y() * y, vec_b.get_z() * z); 
     } 
@@ -77,10 +76,10 @@ public:
         z = k;
     }
 
-    void cross(const vec2f* vector)
+    /* return the length of the vector */
+    inline float mag()
     {
-        vec3f vb(vector->get_x(), vector->get_y(), 0.0f);
-        cross(&vb);
+        return sqrt( (x * x) + (y * y) + (z * z));
     }
 
     void mix(const vec3f* vector)
@@ -88,14 +87,7 @@ public:
         x = (x+vector->get_x()) / 2;
         y = (y+vector->get_y()) / 2;
         z = (z+vector->get_z()) / 2;
-
     } 
-
-    /* return the length of the vector */
-    float mag()
-    {
-        return sqrt( (x * x) + (y * y) + (z * z));
-    }
 
     void print()
     {

@@ -25,12 +25,12 @@ public:
     }   
     ~vec4f(){ }
 
-    float get_x(){ return x; }
-    float get_y(){ return y; } 
-    float get_z(){ return z; }
-    float get_a(){ return a; }
+    inline float get_x(){ return x; }
+    inline float get_y(){ return y; } 
+    inline float get_z(){ return z; }
+    inline float get_a(){ return a; }
 
-    inline vec4f operator+(vec4f& vector)
+    vec4f operator+(vec4f& vector)
     { 
         float i = x + vector.get_x(); 
         float j = y + vector.get_y();
@@ -39,7 +39,7 @@ public:
         return vec4f(i, j, k, m);
     }
 
-    inline vec4f operator-(vec4f& vector)
+    vec4f operator-(vec4f& vector)
     {
         float i = x - vector.get_x();
         float j = y - vector.get_y();
@@ -48,13 +48,18 @@ public:
         return vec4f(i, j, k, m);
     }
 
-    inline vec4f operator*(float scale){ return vec4f(scale * x, scale * y, scale * z, scale * a); }
+    vec4f operator*(float scale){ return vec4f(scale * x, scale * y, scale * z, scale * a); }
    	
-    inline vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.get_x()*x, vec_b.get_y()*y, vec_b.get_z()*z, vec_b.get_a()*a); } 
+    vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.get_x()*x, vec_b.get_y()*y, vec_b.get_z()*z, vec_b.get_a()*a); } 
 
     void dot(vec4f* vector)
     {
         return x * vector->get_x() + y * vector->get_y() + z * vector->get_z() + a * vector->get_a();
+    }
+
+    inline float mag()
+    {
+        return sqrt( (x*x) + (y*y) + (z*z) + (a*a));
     }
 
     void mix(vec4f* vector)
@@ -65,18 +70,10 @@ public:
         a = (a+vector->get_a())/2;
     } 
 
-    float mag()
-    {
-        return sqrt( (x*x) + (y*y) + (z*z) + (a*a));
-    }
-
     void print()
     {
         printf("%f %f, %f %f\n", x, y, z, a);
     }
-
-
-
 
 private:
     float x,y,z,a;
