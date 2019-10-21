@@ -32,6 +32,7 @@ public:
         z = vec->get_z();
         this->a = a;
     }   
+    
     ~vec4f(){ }
 
     inline float get_x()const { return x; }
