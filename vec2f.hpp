@@ -8,9 +8,19 @@
 namespace jpl {
 class vec2f : public jpl_vector 
 {
-
 public:
-    vec2f(float x, float y){ this->x = x; this->y = y; }
+    vec2f(float x, float y)
+    { 
+        this->x = x;
+        this->y = y;
+    }
+
+    vec2f(const vec2f* vec)
+    {
+        this->x = vec->get_x();
+        this->y = vec->get_y();
+    }
+
     ~vec2f(){ };
 
     inline float get_x()const { return x; }
@@ -47,6 +57,12 @@ public:
         return  x * vector->get_x() + y * vector->get_y();
     }
 
+    vec2f normalize()
+    {
+        vec2f vec(x, y);
+        return vec * (1/vec.mag());
+    }
+
     void mix(vec2f* vector)
     {
         x = (x + vector->get_x())/2;
@@ -63,16 +79,17 @@ public:
         return sqrt( (x*x) + (y*y));
     }
 
+    
+
     void print()
     {
         printf("%f %f\n", x, y);
     }
 
+
 private: 
 
     float x,y; 
 
-
 };
 };
-

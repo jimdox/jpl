@@ -8,12 +8,29 @@
 namespace jpl {
 class vec3f : public jpl_vector
 {
-
 public:
     vec3f(){ x,y,z = 0.0f; }
     
-    vec3f(float x, float y, float z){ this->x = x; this->y = y; this->z = z; }
-    vec3f(vec2f* vector, float z){ x = vector->get_x(); y = vector->get_y(); this->z = z; }
+    vec3f(float x, float y, float z)
+    {
+        this->x = x;
+        this->y = y;
+        this->z = z;
+    }
+
+    vec3f(const vec3f* vec)
+    {
+        this->x = vec->get_x();
+        this->y = vec->get_y(); 
+        this->z = vec->get_z();
+    }
+
+    vec3f(vec2f* vector, float z)
+    {
+        x = vector->get_x();
+        y = vector->get_y();
+        this->z = z;
+    }
 
     ~vec3f(){ }
 
@@ -76,6 +93,12 @@ public:
         x = i;
         y = j;
         z = k;
+    }
+
+    vec3f normalize()
+    {
+        vec3f vec(x,y,z);
+        return vec * (1/vec.mag());
     }
 
     /* return the length of the vector */
