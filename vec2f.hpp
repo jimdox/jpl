@@ -6,9 +6,11 @@
 */
 
 namespace jpl {
-class vec2f : public jpl_vector 
+class vec2f : public jpl_vector
 {
 public:
+    vec2f(){ x,y = 0; }
+    
     vec2f(float x, float y)
     { 
         this->x = x;
@@ -26,25 +28,30 @@ public:
     inline float get_x()const { return x; }
     inline float get_y()const { return y; }
 
-    vec2f operator+(const vec2f& vector)
+    vec2f operator+(const vec2f& vec)
     { 
-        float i = x + vector.get_x();
-        float j = y + vector.get_y();
+        float i = x + vec.get_x();
+        float j = y + vec.get_y();
         return vec2f(i,j);
     }
-    void operator+=(const vec2f& vector)
+    void operator+=(const vec2f& vec)
     {
-        x += vector.get_x();
-        y += vector.get_y();
+        x += vec.get_x();
+        y += vec.get_y();
     }
 
-    vec2f operator-(const vec2f& vector)
+    vec2f operator-(const vec2f& vec)
     {
-        float i = x - vector.get_x();
-        float j = y - vector.get_y();
+        float i = x - vec.get_x();
+        float j = y - vec.get_y();
         return vec2f(i,j);
     }
-    
+
+    void operator-=(const vec2f& vec)
+    {
+        x -= vec.get_x();
+        y -= vec.get_y();
+    }
 
     vec2f operator*(float scale){ return vec2f(scale * x, scale * y); }
 
@@ -52,9 +59,9 @@ public:
     
     vec2f operator*(vec2f& vec_b){ return vec2f( vec_b.get_x()*x, vec_b.get_y()*y); }
     
-    float dot(vec2f* vector)
+    float dot(vec2f* vec)
     {
-        return  x * vector->get_x() + y * vector->get_y();
+        return  x * vec->get_x() + y * vec->get_y();
     }
 
     vec2f normalize()
@@ -63,10 +70,10 @@ public:
         return vec * (1/vec.mag());
     }
 
-    void mix(vec2f* vector)
+    void mix(vec2f* vec)
     {
-        x = (x + vector->get_x())/2;
-        y = (y + vector->get_y())/2;
+        x = (x + vec->get_x())/2;
+        y = (y + vec->get_y())/2;
     }
 
     inline float dir()

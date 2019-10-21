@@ -6,7 +6,7 @@
 */
 
 namespace jpl {
-class vec3f : public jpl_vector
+class vec3f : public vec2f
 {
 public:
     vec3f(){ x,y,z = 0.0f; }
@@ -59,6 +59,13 @@ public:
         float j = y - vector.get_y();
         float k = z - vector.get_z();
         return vec3f(i, j, k);
+    }
+
+    void operator-=(const vec3f& vec)
+    {
+        x -= vec.get_x();
+        y -= vec.get_y();
+        z -= vec.get_z();
     }
 
     vec3f operator*(float scale) const 

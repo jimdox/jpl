@@ -6,7 +6,7 @@
 */
 
 namespace jpl {
-class vec4f : public jpl_vector
+class vec4f : public vec3f
 {
 public:
     vec4f() { x,y,z,a = 0; }
@@ -40,21 +40,21 @@ public:
     inline float get_z()const { return z; }
     inline float get_a()const { return a; }
 
-    vec4f operator+(vec4f& vector)
+    vec4f operator+(vec4f& vec)
     { 
-        float i = x + vector.get_x(); 
-        float j = y + vector.get_y();
-        float k = z + vector.get_z();
-        float m = a + vector.get_a();
+        float i = x + vec.get_x(); 
+        float j = y + vec.get_y();
+        float k = z + vec.get_z();
+        float m = a + vec.get_a();
         return vec4f(i, j, k, m);
     }
 
-    vec4f operator-(vec4f& vector)
+    vec4f operator-(vec4f& vec)
     {
-        float i = x - vector.get_x();
-        float j = y - vector.get_y();
-        float k = z - vector.get_z();
-        float m = a - vector.get_a();
+        float i = x - vec.get_x();
+        float j = y - vec.get_y();
+        float k = z - vec.get_z();
+        float m = a - vec.get_a();
         return vec4f(i, j, k, m);
     }
 
@@ -62,9 +62,9 @@ public:
    	
     vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.get_x()*x, vec_b.get_y()*y, vec_b.get_z()*z, vec_b.get_a()*a); } 
 
-    float dot(vec4f* vector)
+    float dot(vec4f* vec)
     {
-        return x * vector->get_x() + y * vector->get_y() + z * vector->get_z() + a * vector->get_a();
+        return x * vec->get_x() + y * vec->get_y() + z * vec->get_z() + a * vec->get_a();
     }
 
     inline float mag()
@@ -72,12 +72,12 @@ public:
         return sqrt( (x*x) + (y*y) + (z*z) + (a*a));
     }
 
-    void mix(vec4f* vector)
+    void mix(vec4f* vec)
     {
-        x = (x+vector->get_x())/2;
-        y = (y+vector->get_y())/2;
-        z = (z+vector->get_z())/2;
-        a = (a+vector->get_a())/2;
+        x = (x+vec->get_x())/2;
+        y = (y+vec->get_y())/2;
+        z = (z+vec->get_z())/2;
+        a = (a+vec->get_a())/2;
     } 
 
     void print()
