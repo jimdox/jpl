@@ -15,10 +15,7 @@ public:
     jpl_vector(){}
     virtual ~jpl_vector(){}
 
-    virtual float get_x(){ return x; }
-    virtual float get_y(){ return y; }
 
-    virtual float mag(){ return x*x + y*y; }
     virtual void print(){}
 
 

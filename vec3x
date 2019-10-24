@@ -1,5 +1,5 @@
 #pragma once
-#include "vec2f.hpp"
+#include "vec2x.hpp"
 
 /* @author: James Doxtader
             github.com/jimdox/jpl
@@ -123,7 +123,7 @@ public:
 
     void print()
     {
-        printf("%e %e, %e\n", x, y, z);
+        printf("%f %f, %f\n", x, y, z);
     }
 
 private:
