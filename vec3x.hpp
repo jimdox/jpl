@@ -3,6 +3,8 @@
 
 /* @author: James Doxtader
             github.com/jimdox/jpl
+            
+    Special extended precision type
 */
 
 namespace jpl {
