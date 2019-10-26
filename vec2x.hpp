@@ -61,7 +61,7 @@ public:
     
     vec2x operator*(vec2x& vec_b){ return vec2x( vec_b.get_x()*x, vec_b.get_y()*y); }
     
-    float dot(vec2x* vec)
+    long double dot(vec2x* vec)
     {
         return  x * vec->get_x() + y * vec->get_y();
     }
@@ -78,7 +78,7 @@ public:
         y = (y + vec->get_y())/2;
     }
 
-    inline float dir()
+    inline long double dir()
     {
         return atan(y/x);
     }
