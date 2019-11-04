@@ -1,12 +1,12 @@
 #pragma once
-#include "jpl_vector.hpp"
-
+#include <math.h>
+#include <stdio.h>
 /* @author: James Doxtader
             github.com/jimdox/jpl
 */
 
 namespace jpl {
-class vec2f : public jpl_vector
+class vec2f
 {
 public:
     vec2f(){ x,y = 0; }
@@ -94,7 +94,7 @@ public:
     }
 
 
-private: 
+protected: 
 
     float x,y; 
 

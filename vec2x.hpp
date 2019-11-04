@@ -1,6 +1,5 @@
 #pragma once
-#include "jpl_vector.hpp"
-
+#include "vec2f.hpp"
 /* @author: James Doxtader
             github.com/jimdox/jpl
     
@@ -8,10 +7,10 @@
 */
 
 namespace jpl {
-class vec2x : public jpl_vector
+class vec2x
 {
 public:
-    vec2x(){ x,y = 0; }
+    vec2x(){ x,y = 0.0L; }
     
     vec2x(long double x, long double y)
     { 
@@ -27,8 +26,8 @@ public:
 
     ~vec2x(){ };
 
-    inline float get_x()const { return x; }
-    inline float get_y()const { return y; }
+    inline long double get_x()const { return x; }
+    inline long double get_y()const { return y; }
 
     vec2x operator+(const vec2x& vec)
     { 
@@ -78,17 +77,15 @@ public:
         y = (y + vec->get_y())/2;
     }
 
-    inline long double dir()
+    inline double dir()
     {
         return atan(y/x);
     }
 
-    inline float mag()
+    inline double mag()
     {
         return sqrt( (x*x) + (y*y));
     }
-
-    
 
     void print()
     {
@@ -96,7 +93,7 @@ public:
     }
 
 
-private: 
+protected: 
 
     long double x,y; 
 

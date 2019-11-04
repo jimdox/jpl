@@ -9,7 +9,11 @@ namespace jpl {
 class vec4f : public vec3f
 {
 public:
-    vec4f() { x,y,z,a = 0; }
+    vec4f()
+    {
+        x,y,z,a = 0;
+    }
+
     vec4f(float x, float y, float z, float a) 
     {
         this->x = x;
@@ -17,6 +21,7 @@ public:
         this->z = z;
         this->a = a;
     }
+
     vec4f(const vec4f* vec)
     {
         x = vec->get_x();
@@ -35,9 +40,6 @@ public:
     
     ~vec4f(){ }
 
-    inline float get_x()const { return x; }
-    inline float get_y()const { return y; } 
-    inline float get_z()const { return z; }
     inline float get_a()const { return a; }
 
     vec4f operator+(vec4f& vec)
@@ -85,8 +87,8 @@ public:
         printf("%f %f, %f %f\n", x, y, z, a);
     }
 
-private:
-    float x,y,z,a;
+protected:
+    float a;
 
 };
 };

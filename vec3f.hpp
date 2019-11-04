@@ -34,8 +34,6 @@ public:
 
     ~vec3f(){ }
 
-    inline float get_x()const { return x; }
-    inline float get_y()const { return y; } 
     inline float get_z()const { return z; }
 
     vec3f operator+(const vec3f &vector)
@@ -126,9 +124,8 @@ public:
         printf("%e %e, %e\n", x, y, z);
     }
 
-private:
-
-    float x, y, z;
+protected:
+    float z;
 
 };
 };

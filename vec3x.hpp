@@ -11,7 +11,7 @@ namespace jpl {
 class vec3x : public vec2x
 {
 public:
-    vec3x(){ x,y,z = 0.0f; }
+    vec3x(){ x,y,z = 0.0L; }
     
     vec3x(long double x, long double y, long double z)
     {
@@ -36,8 +36,6 @@ public:
 
     ~vec3x(){ }
 
-    inline long double get_x()const { return x; }
-    inline long double get_y()const { return y; } 
     inline long double get_z()const { return z; }
 
     vec3x operator+(const vec3x &vector)
@@ -111,7 +109,7 @@ public:
     }
 
     /* return the length of the vector */
-    inline long double mag()
+    inline double mag()
     {
         return sqrt( (x * x) + (y * y) + (z * z));
     }
@@ -128,9 +126,9 @@ public:
         printf("%Le %Le, %Le\n", x, y, z);
     }
 
-private:
+protected:
 
-    long double x, y, z;
+    long double z;
 
 };
 };
