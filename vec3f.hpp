@@ -123,9 +123,9 @@ public:
     {
         printf("%e %e, %e\n", x, y, z);
     }
-
-protected:
+    
     float z;
 
+protected:
 };
 };

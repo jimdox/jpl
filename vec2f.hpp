@@ -93,10 +93,8 @@ public:
         printf("%e %e\n", x, y);
     }
 
-
-protected: 
-
     float x,y; 
-
+    
+protected:
 };
 };

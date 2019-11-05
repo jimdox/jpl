@@ -92,10 +92,9 @@ public:
         printf("%Le %Le\n", x, y);
     }
 
-
-protected: 
-
     long double x,y; 
 
+
+protected: 
 };
 };

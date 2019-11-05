@@ -126,9 +126,8 @@ public:
         printf("%Le %Le, %Le\n", x, y, z);
     }
 
-protected:
-
     long double z;
 
+protected:
 };
 };

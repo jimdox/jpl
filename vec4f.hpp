@@ -87,8 +87,8 @@ public:
         printf("%f %f, %f %f\n", x, y, z, a);
     }
 
-protected:
     float a;
 
+protected:
 };
 };
