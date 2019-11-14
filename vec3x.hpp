@@ -80,7 +80,7 @@ public:
         z * scale;
     }
     
-	vec3x operator*(const vec3x& vec_b)
+    vec3x operator*(const vec3x& vec_b)
     { 
         return vec3x(vec_b.get_x() * x, vec_b.get_y() * y, vec_b.get_z() * z); 
     } 
