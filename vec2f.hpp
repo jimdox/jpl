@@ -1,5 +1,5 @@
 #pragma once
-#include <math.h>
+#include <cmath>
 #include <stdio.h>
 /* @author: James Doxtader
             github.com/jimdox/jpl

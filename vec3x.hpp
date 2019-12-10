@@ -11,8 +11,13 @@ namespace jpl {
 class vec3x : public vec2x
 {
 public:
-    vec3x(){ x,y,z = 0.0L; }
-    
+    vec3x()
+    {
+        x = 0.0L;
+        y = 0.0L;
+        z = 0.0L;
+    }    
+
     vec3x(long double x, long double y, long double z)
     {
         this->x = x;
@@ -20,17 +25,17 @@ public:
         this->z = z;
     }
 
-    vec3x(const vec3x* vec)
+    vec3x(const vec3x* v)
     {
-        this->x = vec->get_x();
-        this->y = vec->get_y(); 
-        this->z = vec->get_z();
+        this->x = v->get_x();
+        this->y = v->get_y(); 
+        this->z = v->get_z();
     }
 
-    vec3x(vec2x* vector, long double z)
+    vec3x(vec2x* v, long double z)
     {
-        x = vector->get_x();
-        y = vector->get_y();
+        x = v->get_x();
+        y = v->get_y();
         this->z = z;
     }
 
@@ -38,27 +43,21 @@ public:
 
     inline long double get_z()const { return z; }
 
-    vec3x operator+(const vec3x &vector)
-    { 
-        long double i = x + vector.get_x(); 
-        long double j = y + vector.get_y();
-        long double k = z + vector.get_z();
-        return vec3x(i, j, k);
+    vec3x operator+(const vec3x &v)
+    {
+        return vec3x(x + v.x, y + v.y, z + v.z);
     }
 
-    void operator+=(const vec3x& vector)
+    void operator+=(const vec3x& v)
     {
-        x += vector.get_x();
-        y += vector.get_y();
-        z += vector.get_z();
+        x += v.x;
+        y += v.y;
+        z += v.z;
     }
 
-    vec3x operator-(const vec3x& vector)
+    vec3x operator-(const vec3x& v)
     {
-        long double i = x - vector.get_x();
-        long double j = y - vector.get_y();
-        long double k = z - vector.get_z();
-        return vec3x(i, j, k);
+        return vec3x(x - v.x, y - v.y, z - v.z);
     }
 
     void operator-=(const vec3x& vec)
@@ -80,22 +79,22 @@ public:
         z * scale;
     }
     
-    vec3x operator*(const vec3x& vec_b)
+    vec3x operator*(const vec3x& v)
     { 
-        return vec3x(vec_b.get_x() * x, vec_b.get_y() * y, vec_b.get_z() * z); 
+        return vec3x(x * v.x, y * v.y, z * v.z); 
     } 
 
-    long double dot(vec3x* vector)
+    inline long double dot(const vec3x& vector)
     {
-        return x * vector->get_x() + y * vector->get_y() + z * vector->get_z();
+        return x * vector.get_x() + y * vector.get_y() + z * vector.get_z();
     }
 
-    void cross(const vec3x* vector)
+    void cross(const vec3x& vector)
     {
         long double i,j,k;    // components of resulting vector
-        i = (y * vector->get_z()) - (z * vector->get_y());
-        j = (z * vector->get_x()) - (x * vector->get_z());
-        k = (x * vector->get_y()) - (y * vector->get_x());
+        i = (y * vector.get_z()) - (z * vector.get_y());
+        j = (z * vector.get_x()) - (x * vector.get_z());
+        k = (x * vector.get_y()) - (y * vector.get_x());
 
         x = i;
         y = j;
@@ -105,29 +104,27 @@ public:
     vec3x normalize()
     {
         vec3x vec(x,y,z);
-        return vec * (1/vec.mag());
+        return vec * (1/vec.length());
     }
 
-    /* return the length of the vector */
-    inline double mag()
+    /* orthog. projection onto u vec. */
+    vec3x proj(vec3x& u)
+    {
+        return u * (dot(u)/(pow(u.length(), 2)));
+    }
+
+    /* return the magnitude */
+    inline long double length()
     {
         return sqrt( (x * x) + (y * y) + (z * z));
     }
 
-    void mix(const vec3x* vector)
+    vec3x mix(const vec3x& vector)
     {
-        x = (x+vector->get_x()) / 2;
-        y = (y+vector->get_y()) / 2;
-        z = (z+vector->get_z()) / 2;
+        return vec3x((x+vector.get_x())/2, (y+vector.get_y())/2,  (z+vector.get_z())/2);
     } 
 
-    void print()
-    {
-        printf("%Le %Le, %Le\n", x, y, z);
-    }
 
     long double z;
-
-protected:
 };
 };

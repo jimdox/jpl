@@ -1,5 +1,6 @@
 #pragma once
-#include "vec2f.hpp"
+#include <cmath>
+#include <stdio.h>
 /* @author: James Doxtader
             github.com/jimdox/jpl
     
@@ -7,10 +8,15 @@
 */
 
 namespace jpl {
+
 class vec2x
 {
 public:
-    vec2x(){ x,y = 0.0L; }
+    vec2x()
+    {
+        x = 0.0L;
+        y = 0.0L; 
+    }
     
     vec2x(long double x, long double y)
     { 
@@ -18,10 +24,10 @@ public:
         this->y = y;
     }
 
-    vec2x(const vec2x* vec)
+    vec2x(const vec2x* v)
     {
-        this->x = vec->get_x();
-        this->y = vec->get_y();
+        this->x = v->get_x();
+        this->y = v->get_y();
     }
 
     ~vec2x(){ };
@@ -29,23 +35,25 @@ public:
     inline long double get_x()const { return x; }
     inline long double get_y()const { return y; }
 
-    vec2x operator+(const vec2x& vec)
+    vec2x operator+(const vec2x& v)
     { 
-        float i = x + vec.get_x();
-        float j = y + vec.get_y();
-        return vec2x(i,j);
+        return vec2x(x + v.x, y + v.y);
     }
-    void operator+=(const vec2x& vec)
+    void operator+=(const vec2x& v)
     {
-        x += vec.get_x();
-        y += vec.get_y();
+        x += v.x;
+        y += v.x;
     }
 
-    vec2x operator-(const vec2x& vec)
+    vec2x operator-(const vec2x& v)
     {
-        float i = x - vec.get_x();
-        float j = y - vec.get_y();
-        return vec2x(i,j);
+
+        return vec2x(x + v.x, y + v.y);
+    }
+
+    vec2x operator-()
+    {
+        return vec2x(-x, -y);
     }
 
     void operator-=(const vec2x& vec)
@@ -54,46 +62,44 @@ public:
         y -= vec.get_y();
     }
 
-    vec2x operator*(float scale){ return vec2x(scale * x, scale * y); }
+    vec2x operator*(long double scale){ return vec2x(scale * x, scale * y); }
 
-    void operator*=(float scale){ x * scale; y * scale; }
+    void operator*=(long double scale){ x * scale; y * scale; }
     
-    vec2x operator*(vec2x& vec_b){ return vec2x( vec_b.get_x()*x, vec_b.get_y()*y); }
+    vec2x operator*(vec2x& v){ return vec2x( x * v.x, y * v.y); }
     
-    long double dot(vec2x* vec)
+    long double dot(const vec2x& v)
     {
-        return  x * vec->get_x() + y * vec->get_y();
+        return  x * v.get_x() + y * v.get_y();
     }
 
     vec2x normalize()
     {
         vec2x vec(x, y);
-        return vec * (1/vec.mag());
+        return vec * (1/vec.length());
     }
 
-    void mix(vec2x* vec)
+    vec2x proj(vec2x& u)
     {
-        x = (x + vec->get_x())/2;
-        y = (y + vec->get_y())/2;
+        return u * (dot(u)/(u.dot(u)));
     }
 
-    inline double dir()
+    vec2x mix(vec2x* vec)
+    {
+        return vec2x((x + vec->get_x()), (y + vec->get_y())/2);
+    }
+
+    inline long double dir()
     {
         return atan(y/x);
     }
 
-    inline double mag()
+    inline long double length()
     {
         return sqrt( (x*x) + (y*y));
     }
 
-    void print()
-    {
-        printf("%Le %Le\n", x, y);
-    }
-
-    long double x,y; 
-
+    long double x, y;
 
 protected: 
 };
