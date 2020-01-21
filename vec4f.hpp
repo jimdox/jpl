@@ -62,8 +62,6 @@ public:
 
     vec4f operator*(float scale){ return vec4f(scale * x, scale * y, scale * z, scale * a); }
    	
-    vec4f operator*(vec4f& vec_b){ return vec4f(vec_b.get_x()*x, vec_b.get_y()*y, vec_b.get_z()*z, vec_b.get_a()*a); } 
-
     float dot(vec4f* vec)
     {
         return x * vec->get_x() + y * vec->get_y() + z * vec->get_z() + a * vec->get_a();

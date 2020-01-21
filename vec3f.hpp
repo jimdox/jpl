@@ -77,11 +77,6 @@ public:
         y * scale;
         z * scale;
     }
-    
-	vec3f operator*(const vec3f& vec_b)
-    { 
-        return vec3f(vec_b.get_x() * x, vec_b.get_y() * y, vec_b.get_z() * z); 
-    } 
 
     float dot(vec3f* vector)
     {

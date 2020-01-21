@@ -78,18 +78,13 @@ public:
         y * scale;
         z * scale;
     }
-    
-    vec3x operator*(const vec3x& v)
-    { 
-        return vec3x(x * v.x, y * v.y, z * v.z); 
-    } 
 
-    inline long double dot(const vec3x& vector)
+    inline long double dot(vec3x& vector)
     {
         return x * vector.get_x() + y * vector.get_y() + z * vector.get_z();
     }
 
-    void cross(const vec3x& vector)
+    void cross(vec3x& vector)
     {
         long double i,j,k;    // components of resulting vector
         i = (y * vector.get_z()) - (z * vector.get_y());
@@ -119,7 +114,7 @@ public:
         return sqrt( (x * x) + (y * y) + (z * z));
     }
 
-    vec3x mix(const vec3x& vector)
+    vec3x mix(vec3x& vector)
     {
         return vec3x((x+vector.get_x())/2, (y+vector.get_y())/2,  (z+vector.get_z())/2);
     } 

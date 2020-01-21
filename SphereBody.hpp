@@ -5,6 +5,8 @@
 
 /* @author: James Doxtader
             github.com/jimdox/jpl
+
+    An example of how you might apply the library for physical interaction.
 */
 
 namespace jpl {
@@ -81,21 +83,6 @@ public:
     void offset_pos(vec3f d_pos)
     {
         position += d_pos;
-    }
-
-
-    void apply_force(vec3f& force, float duration, unsigned int num_steps)
-    {
-        vec3f d_a = force * (1.0f/mass);
-        float dt = duration/num_steps;                          /* interval to update object */
-
-        for(int i = 0; i < num_steps; i++)
-        {
-        accleration += d_a;
-        update(dt);
-        }
-
-        accleration += (d_a*(-1));                             /* setting it to 0 would cancel net force */
     }
 
     void update(float dt)
