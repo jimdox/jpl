@@ -31,7 +31,7 @@ public:
         this->tail = tail;
     }
 
-    void add(Node<T>* node)
+    void addNode(Node<T>* node)
     {
         Node<T> *temp = head;
         while(temp->next != nullptr)
@@ -39,6 +39,20 @@ public:
             temp = temp->next;
         }
         temp->next = node;
+    }
+
+    void rmNode(T value)
+    {
+        Node<T> *ptr = head;
+        while(ptr != nullptr)
+        {
+            if(ptr->value == value)
+            {
+                ptr->prev->next = ptr->next;
+                break;
+            }
+            ptr = ptr->next;
+        }
     }
     
     
