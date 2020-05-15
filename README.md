@@ -1,1 +1,1 @@
-# Jim's Physics Library
+RocketMath library
