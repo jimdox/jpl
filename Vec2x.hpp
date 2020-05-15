@@ -1,7 +1,7 @@
 #pragma once
 #include "Math.hpp"
 /* @author: James Doxtader
-            github.com/jimdox/jpl
+            github.com/jimdox/RocketMath
     
     Vec2x: 10 byte f.p. extended precision 2D vector
 */
@@ -52,8 +52,8 @@ public:
 
     void operator-=(const Vec2x& vec)
     {
-        x -= vec.get_x();
-        y -= vec.get_y();
+        x -= vec.x;
+        y -= vec.y;
     }
 
     Vec2x operator*(long double scale){ return Vec2x(scale * x, scale * y); }
@@ -64,24 +64,24 @@ public:
     
     long double Dot(const Vec2x& v)
     {
-        return  x * v.get_x() + y * v.get_y();
+        return  x * v.x + y * v.y;
     }
 
-    Vec2x Normalize()
+    Vec2x GetNormalized()
     {
         Vec2x vec(x, y);
-        return vec * (1 / vec.length());
+        return vec * (1 / vec.Length());
     }
     
     /* orthog. projection onto u vec. */
     Vec2x GetOrthoProjection(Vec2x& u)
     {
-        return u * (dot(u)/(u.dot(u)));
+        return u * (Dot(u)/(u.Dot(u)));
     }
 
-    Vec2x Mix(Vec2x* vec)
+    Vec2x GetMix(Vec2x& vec)
     {
-        return Vec2x((x + vec->get_x()), (y + vec->get_y())/2);
+        return Vec2x((x + vec.x)/2, (y + vec.y)/2);
     }
 
     inline long double Dir()

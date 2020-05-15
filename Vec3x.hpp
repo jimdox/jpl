@@ -2,7 +2,7 @@
 #include "Vec2x.hpp"
 
 /* @author: James Doxtader
-            github.com/jimdox/jpl
+            github.com/jimdox/RocketMath
 
     Vec3x: 10 byte f.p. extended precision 3D vector
 */
@@ -56,9 +56,9 @@ public:
 
     void operator-=(const Vec3x& vec)
     {
-        x -= vec.get_x();
-        y -= vec.get_y();
-        z -= vec.get_z();
+        x -= vec.x;
+        y -= vec.y;
+        z -= vec.z;
     }
 
     Vec3x operator*(long double scale) const 
@@ -73,33 +73,33 @@ public:
         z * scale;
     }
 
-    inline long double Dot(Vec3x& vector)
+    inline long double Dot(const Vec3x& vector)
     {
-        return x * vector.get_x() + y * vector.get_y() + z * vector.get_z();
+        return x * vector.x + y * vector.y + z * vector.z;
     }
 
     void Cross(Vec3x& vector)
     {
         long double i,j,k;    // components of resulting vector
-        i = (y * vector.get_z()) - (z * vector.get_y());
-        j = (z * vector.get_x()) - (x * vector.get_z());
-        k = (x * vector.get_y()) - (y * vector.get_x());
+        i = (y * vector.z) - (z * vector.y);
+        j = (z * vector.x) - (x * vector.z);
+        k = (x * vector.y) - (y * vector.x);
 
         x = i;
         y = j;
         z = k;
     }
 
-    Vec3x Normalize()
+    Vec3x GetNormalized()
     {
         Vec3x vec(x,y,z);
-        return vec * (1/vec.length());
+        return vec * (1/vec.Length());
     }
 
     /* orthog. projection onto u vec. */
     Vec3x GetOrthoProjection(Vec3x& u)
     {
-        return u * (dot(u)/(pow(u.length(), 2)));
+        return u * (Dot(u)/(pow(u.Length(), 2)));
     }
 
     /* return the magnitude */
@@ -108,11 +108,10 @@ public:
         return sqrt( (x * x) + (y * y) + (z * z));
     }
 
-    Vec3x Mix(Vec3x& vector)
+    Vec3x GetMix(const Vec3x& vec)
     {
-        return Vec3x((x+vector.get_x())/2, (y+vector.get_y())/2,  (z+vector.get_z())/2);
+        return Vec3x((x + vec.x) / 2, (y + vec.y) / 2,  (z + vec.z) / 2);
     } 
-
 
     long double z;
 };

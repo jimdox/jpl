@@ -2,7 +2,7 @@
 #include "Vec3x.hpp"
 
 /* @author: James Doxtader
-            github.com/jimdox/jpl
+            github.com/jimdox/RocketMath
 
     Vec4x: 10 byte f.p. extended precision 4D vector
 */
