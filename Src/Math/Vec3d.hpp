@@ -7,7 +7,7 @@
     Vec3d: double precision 3D vector
 */
 
-namespace Rkt 
+namespace Eros 
 {
 class Vec3d : public Vec2d
 {

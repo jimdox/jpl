@@ -6,7 +6,7 @@
     Vec2d: double precision 2D vector
 */
 
-namespace Rkt
+namespace Eros
 {
 class Vec2d
 {

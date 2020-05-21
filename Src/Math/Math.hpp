@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 
-namespace Rkt
+namespace Eros
 {
 
 }

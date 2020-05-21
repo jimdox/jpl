@@ -1,1 +1,1 @@
-RocketMath library
+Eros: A C++ Utilities library

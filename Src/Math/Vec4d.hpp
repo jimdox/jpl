@@ -7,7 +7,7 @@
     Vec4d: double precision 4D vector
 */
 
-namespace Rkt 
+namespace Eros 
 {
 class Vec4d : public Vec3d
 {
